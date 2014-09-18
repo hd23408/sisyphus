@@ -17,7 +17,7 @@ def images(request):
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
-            trail = Trail.objects.get(pk=1)
+            trail = Trail.objects.get(pk=request.POST['trail'])
             point = Point(954158.1, 4215137.1, srid=32140)
             new_photo = Photo(name = form.cleaned_data['name'], image = request.FILES['imgfile'], 
                         upvotes = 0, downvotes = 0, trail = trail, point = point)

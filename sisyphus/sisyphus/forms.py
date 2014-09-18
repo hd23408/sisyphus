@@ -1,4 +1,5 @@
 from django import forms
+from sisyphus.models import Trail
 
 class PhotoForm(forms.Form):
     name = forms.CharField(
@@ -7,4 +8,7 @@ class PhotoForm(forms.Form):
     )
     imgfile = forms.ImageField(
         label='Select a file'
+    )
+    trail = forms.ModelChoiceField(
+        queryset=Trail.objects.all().order_by('name')
     )

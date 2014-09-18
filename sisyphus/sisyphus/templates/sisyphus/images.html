@@ -9,7 +9,7 @@
     {% if photos %}
         <ul>
         {% for photo in photos %}
-            <li><a href="{{ photo.image.url }}">{{ photo.name }}</a></li>
+            <li><a href="{{ photo.image.url }}">{{ photo.name }}</a> {{ photo.trail }}</li>
         {% endfor %}
         </ul>
     {% else %}
