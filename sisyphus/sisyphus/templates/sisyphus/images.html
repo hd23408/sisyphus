@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Images</title>   
+    </head>
+    <body>
+    <!-- List of uploaded images -->
+    {% if photos %}
+        <ul>
+        {% for photo in photos %}
+            <li><a href="{{ photo.image.url }}">{{ photo.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No images have been uploaded.</p>
+    {% endif %}
+        <form action="{% url images %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form }}</ p>
+            <p><input type="submit" value="Upload" /></p>
+        </form>
+    </body>
+</html> 
