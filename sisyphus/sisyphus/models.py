@@ -21,6 +21,8 @@ class Photo(models.Model):
     upvotes = models.IntegerField()
     downvotes = models.IntegerField()
 
+    trail = models.ForeignKey(Trail)
+
     # GeoDjango-specific: a geometry field, and
     # overriding the default manager with a GeoManager instance.
     point = models.PointField()

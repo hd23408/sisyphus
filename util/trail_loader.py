@@ -2,7 +2,7 @@
 
 import osgeo.ogr
 import sys, os
-sys.path.append("sisyphus/sisyphus")
+sys.path.append("../sisyphus")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geodjango.settings")
 from sisyphus.models import Trail
 

@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+from djgeojson.views import GeoJSONLayerView
+from sisyphus.models import Trail
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib.gis import admin
@@ -15,6 +17,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/trails.json', GeoJSONLayerView.as_view(model=Trail, properties=('name'), geometry_field='line'), name='data')
 )
 
 # static files (images, css, javascript, etc.)
